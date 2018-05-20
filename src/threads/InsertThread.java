@@ -9,9 +9,9 @@ import collection.ConcurrentLinkedList;
 public class InsertThread extends Thread {
 
 	ConcurrentLinkedList concurrentLinkedList;
-	int intentedValue;
+	Integer intentedValue;
 
-	public InsertThread(ConcurrentLinkedList concurrentLinkedList, int intentedValue) {
+	public InsertThread(ConcurrentLinkedList concurrentLinkedList, Integer intentedValue) {
 		this.concurrentLinkedList = concurrentLinkedList;
 		this.intentedValue = intentedValue;
 	}

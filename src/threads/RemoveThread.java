@@ -9,9 +9,9 @@ import collection.ConcurrentLinkedList;
 public class RemoveThread extends Thread {
 
 	ConcurrentLinkedList concurrentLinkedList;
-	int targetValue;
+	Integer targetValue;
 	
-	public RemoveThread(ConcurrentLinkedList concurrentLinkedList, int targetValue) {
+	public RemoveThread(ConcurrentLinkedList concurrentLinkedList, Integer targetValue) {
 		this.concurrentLinkedList = concurrentLinkedList;
 		this.targetValue = targetValue;
 	}

@@ -9,9 +9,9 @@ import collection.ConcurrentLinkedList;
 public class SearchThread extends Thread {
 
 	ConcurrentLinkedList concurrentLinkedList;
-	int targetValue;
+	Integer targetValue;
 
-	public SearchThread(ConcurrentLinkedList concurrentLinkedList, int targetValue) {
+	public SearchThread(ConcurrentLinkedList concurrentLinkedList, Integer targetValue) {
 		this.concurrentLinkedList = concurrentLinkedList;
 		this.targetValue = targetValue;
 	}
