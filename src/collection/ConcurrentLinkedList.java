@@ -8,9 +8,6 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @author hugo
  *
  */
-
-
-
 public class ConcurrentLinkedList {
 	private LinkedList<Integer> linkedList;
 	private ReentrantReadWriteLock rwl;
