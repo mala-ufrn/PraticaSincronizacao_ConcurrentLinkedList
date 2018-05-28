@@ -17,12 +17,12 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class ConcurrentLinkedList {
 	
 	/**
-	 * The encapsuled linked list
+	 * The encapsulated linked list
 	 */
 	private LinkedList<Integer> linkedList;
 	
 	/**
-	 * The main blocking structure, it has a special lock to treat differentily readers and writers
+	 * The main blocking structure, it has a special lock to treat differently readers and writers
 	 */
 	private ReentrantReadWriteLock rwl;
 	
@@ -32,12 +32,12 @@ public class ConcurrentLinkedList {
 	private boolean writing;
 	
 	/**
-	 * {@code Condition} that controlls the blocked writers (insert or remove) in a intermediate block
+	 * {@code Condition} that controls the blocked writers (insert or remove) in a intermediate block
 	 */
 	private Condition writersCondition;
 
 	/**
-	 * Contruct a empty list with a read-write explicit lock
+	 * Construct a empty list with a read-write explicit lock
 	 */
 	public ConcurrentLinkedList() {
 		linkedList = new LinkedList<>();
@@ -47,11 +47,11 @@ public class ConcurrentLinkedList {
 	}
 	
 	/**
-	 * Realizes the search on the list. The blocking structures permits that search operations ocurs 
-	 * parallelly with others searches and insertions
+	 * Realizes the search on the list. The blocking structures permits that search operations occurs 
+	 * parallel with others searches and insertions
 	 * 
 	 * @param threadName
-	 *   Thread Name to print on the standart output
+	 *   Thread Name to print on the standard output
 	 * @param value
 	 *   Searched integer value
 	 */
@@ -84,7 +84,7 @@ public class ConcurrentLinkedList {
 	 * gets writeLock again to clear the guard condition.
 	 * 
 	 * @param threadName
-	 *   Thread Name to print on the standart output
+	 *   Thread Name to print on the standard output
 	 * @param value
 	 *   Value to insert
 	 */
@@ -115,7 +115,7 @@ public class ConcurrentLinkedList {
 			rwl.writeLock().unlock();
 		}
 		
-		// Now, with outher writers locked in the guard codition variable, execute the insertion operation
+		// Now, with other writers locked in the guard condition variable, execute the insertion operation
 		try {
 			Thread.sleep(50);
 		} catch (InterruptedException e) {
@@ -125,7 +125,7 @@ public class ConcurrentLinkedList {
 		linkedList.addLast(value);
 		System.out.println("[" + threadName + "](param: "+ value + ") - Value inserted.");
 		
-		// Aquiring access and free the guard condition
+		// Acquiring access and free the guard condition
 		rwl.writeLock().lock();
 		try {
 			writing = false;
@@ -140,7 +140,7 @@ public class ConcurrentLinkedList {
 	 * operations using the writeLock and the guard condition.
 	 * 
 	 * @param threadName
-	 *   Thread Name to print on the standart output
+	 *   Thread Name to print on the standard output
 	 * @param value
 	 *   Value to attempt removes
 	 */

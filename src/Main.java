@@ -10,7 +10,7 @@ import threads.RemoveThread;
 import threads.SearchThread;
 
 /**
- * This class basicaly lauches the applitation and test the implemented classes
+ * This class basically launches the application and test the implemented classes
  * 
  * @author hugo
  */
@@ -89,7 +89,7 @@ public class Main {
 	private static class ThreadsLauncher extends Thread {
 		
 		List<Thread> threadList;
-		int delay; // miliseconds between two launchs
+		int delay; // milliseconds between two launches
 
 		public ThreadsLauncher(List<Thread> threadList) {
 			super();
